@@ -3,7 +3,7 @@ import { DataGrid, GridOverlay } from '@material-ui/data-grid';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 const columns = [
-    { field: 'id', headerName: 'EmpId', type: 'number', width: 100 },
+    { field: 'id', headerName: 'EmpId', type: 'number', width: 150 },
     { field: 'name', headerName: 'EmpName', width: 800 },
     { field: 'location', headerName: 'EmpLocation', width: 200, valueGetter: params => `${{ 'Pune': 'Pune', 'Bangalore': 'Bangalore', 'Hyderabad': 'Hyderabad' }[params.getValue('location')] || 'Others'}` },
 ]

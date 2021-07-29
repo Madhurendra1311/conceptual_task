@@ -11,7 +11,7 @@ const HomePage = () => {
     useEffect(() => {
     }, [addEmployeeModal])
 
-    console.log(newEmp);
+    // console.log(newEmp);
 
     return (
         <>
