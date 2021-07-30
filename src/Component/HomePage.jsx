@@ -23,7 +23,7 @@ const HomePage = () => {
             </Box>
             {
                 <Box padding='1rem 2rem'>
-                    <EmployeeTable loading={!newEmp.length? true : false} newEmp={newEmp?.map((item, i) => ({ ...item, id: i }))} />
+                    <EmployeeTable loading={!newEmp.length? true : false} newEmp={newEmp?.map((item, i) => ({ ...item }))} />
                 </Box>
             }
         </>
