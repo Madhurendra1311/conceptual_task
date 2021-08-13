@@ -7,6 +7,10 @@ const schema = require('./schema/schema')
 const app = express()
 
 const mongoose = require('mongoose')
+const cors = require('cors')
+
+// allow cross origin request
+app.use(cors())
 
 
 mongoose.connect('mongodb+srv://Apache:test1234@cluster0.9uyog.mongodb.net/graphQL_Project?retryWrites=true&w=majority')
