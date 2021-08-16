@@ -1,0 +1,25 @@
+{
+    "user": [
+        {
+            "name": "madhu",
+            "address": "Bangalore",
+            "Email": "m@gmail.com",
+            "contact": 8709181793,
+            "id": 1
+        },
+        {
+            "name": "ram",
+            "address": "pune",
+            "Email": "r@gmail.com",
+            "contact": 8709181797,
+            "id": 2
+        },
+        {
+            "name": "shyam",
+            "address": "delhi",
+            "Email": "s@gmail.com",
+            "contact": 87091817956,
+            "id": 3
+        }
+    ]
+}
