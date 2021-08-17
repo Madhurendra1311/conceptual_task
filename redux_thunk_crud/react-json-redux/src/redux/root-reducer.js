@@ -3,7 +3,7 @@ import userReducers from "./reducer"
 
 
 const rootReducer = combineReducers({
-    users: userReducers
+    data: userReducers
 })
 
 
