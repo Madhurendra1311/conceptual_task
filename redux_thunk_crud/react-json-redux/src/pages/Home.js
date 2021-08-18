@@ -10,7 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { useSelector, useDispatch } from "react-redux"
-import { loadUsers } from "../redux/actions"
+import { deleteUser, loadUsers } from "../redux/actions"
+import { useHistory } from 'react-router';
 
 
 const useButtonStyles = makeStyles((theme) => ({
@@ -63,14 +64,25 @@ const useStyles = makeStyles({
 
 function Home() {
   const classes = useStyles();
+  let history = useHistory()
   const buttonStyles = useButtonStyles()
   let dispatch = useDispatch()
   const { users } = useSelector(state => state.data)
   useEffect(() => {
     dispatch(loadUsers)
   }, [])
+
+  const handleDelete = (id) => {
+    if(window.confirm("Are you sure wanted to delete the user ?")){
+      dispatch(deleteUser(id))
+    }
+  }
+
   return (
     <div>
+      <div className={buttonStyles.root}>
+        <Button variant="contained" color="primary" onClick = {() => history.push("/addUser")}>Add User</Button>
+      </div>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
@@ -94,7 +106,7 @@ function Home() {
                 <StyledTableCell align="right">
                   <div className={buttonStyles.root}>
                     <ButtonGroup variant="contained" aria-label="contained primary button group">
-                      <Button style={{marginRight: "5px"}} color="secondary">Delete</Button>
+                      <Button style={{marginRight: "5px"}} color="secondary" onClick={() => handleDelete(user.id)}>Delete</Button>
                       <Button color="primary">Edit</Button>
                     </ButtonGroup>
                   </div>
