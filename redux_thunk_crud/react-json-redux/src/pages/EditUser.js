@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux"
-import { addUser } from '../redux/actions';
+import { addUser, getSingleUser } from '../redux/actions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function AddUser() {
+function EditUser() {
     const classes = useStyles();
     let history = useHistory()
     let dispatch = useDispatch()
@@ -28,8 +28,20 @@ function AddUser() {
         address: ""
     })
     const [error, setError] = useState("")
+    let {id} = useParams()
+    const {user} = useSelector((state) => state.data)
 
     const { name, email, contact, address } = state
+
+    useEffect(()=>{
+        dispatch(getSingleUser(id))
+    },[])
+
+    useEffect(()=> {
+        if(user){
+            setState({...user})
+        }
+    }, [user])
 
     const handleInputChange = (e) => {
         let { name, value } = e.target
@@ -49,21 +61,21 @@ function AddUser() {
     return (
         <div>
             <Button style={{ width: "100px", marginTop: "20px" }} variant="contained" color="secondary" onClick={() => history.push("/")}>Go Back</Button>
-            <h2>Add User</h2>
+            <h2>Edit User</h2>
             {error && <h3 style={{ color: "red" }}>{error}</h3>}
             <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
-                <TextField id="standard-basic" label="Name" value={name} name="name" type="text" onChange={handleInputChange} />
+                <TextField id="standard-basic" label="Name" value={name || ""} name="name" type="text" onChange={handleInputChange} />
                 <br />
-                <TextField id="standard-basic" label="Email" value={email} name="email" type="email" onChange={handleInputChange} />
+                <TextField id="standard-basic" label="Email" value={email || ""} name="email" type="email" onChange={handleInputChange} />
                 <br />
-                <TextField id="standard-basic" label="Contact" value={contact} name="contact" type="number" onChange={handleInputChange} />
+                <TextField id="standard-basic" label="Contact" value={contact || ""} name="contact" type="number" onChange={handleInputChange} />
                 <br />
-                <TextField id="standard-basic" label="Address" value={address} name="address" type="text" onChange={handleInputChange} />
+                <TextField id="standard-basic" label="Address" value={address || ""} name="address" type="text" onChange={handleInputChange} />
                 <br />
-                <Button style={{ width: "100px" }} variant="contained" color="primary" type="submit">Submit</Button>
+                <Button style={{ width: "100px" }} variant="contained" color="primary" type="submit">Update</Button>
             </form>
         </div>
     )
 }
 
-export default AddUser
+export default EditUser

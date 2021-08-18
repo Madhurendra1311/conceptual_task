@@ -107,7 +107,7 @@ function Home() {
                   <div className={buttonStyles.root}>
                     <ButtonGroup variant="contained" aria-label="contained primary button group">
                       <Button style={{marginRight: "5px"}} color="secondary" onClick={() => handleDelete(user.id)}>Delete</Button>
-                      <Button color="primary">Edit</Button>
+                      <Button color="primary" onClick={() => history.push(`/editUser/${user.id}`)}>Edit</Button>
                     </ButtonGroup>
                   </div>
                 </StyledTableCell>
