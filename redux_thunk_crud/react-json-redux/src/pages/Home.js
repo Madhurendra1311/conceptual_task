@@ -96,7 +96,7 @@ function Home() {
           </TableHead>
           <TableBody>
             {users && users.map((user) => (
-              <StyledTableRow key={user.name}>
+              <StyledTableRow key={user.id}>
                 <StyledTableCell component="th" scope="row">
                   {user.name}
                 </StyledTableCell>

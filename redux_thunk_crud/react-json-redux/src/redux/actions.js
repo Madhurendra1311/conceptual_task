@@ -14,6 +14,11 @@ const userAdded = () => ({
     type: types.ADD_USER
 })
 
+const userUpdated = () => ({
+    type: types.UPDATE_USER
+})
+
+
 const getUser = (user) => ({
     type: types.GET_SINGLE_USER,
     payload: user
@@ -61,6 +66,17 @@ export const getSingleUser = (id) => {
             .get(`${process.env.REACT_APP_API}/${id}`).then((resp) => {
             console.log("resp", resp)
             dispatch(getUser(resp.data))
+        })
+        .catch((error) => console.log(error))
+    }
+}
+
+export const updateUser = (user, id) => {
+    return function (dispatch){
+        axios
+            .put(`${process.env.REACT_APP_API}/${id}`, user).then((resp) => {
+            console.log("resp", resp)
+            dispatch(userUpdated())
         })
         .catch((error) => console.log(error))
     }

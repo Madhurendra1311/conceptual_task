@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux"
-import { addUser, getSingleUser } from '../redux/actions';
+import { getSingleUser, updateUser } from '../redux/actions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -53,7 +53,7 @@ function EditUser() {
         if (!name || !email || !contact || !address) {
             setError("please enter all the input field")
         } else {
-            dispatch(addUser(state))
+            dispatch(updateUser(state, id))
             history.push("/")
             setError("")
         }
