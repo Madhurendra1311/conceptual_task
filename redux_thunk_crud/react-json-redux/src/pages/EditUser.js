@@ -50,7 +50,7 @@ function EditUser() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!name || !email || !contact || !address) {
+        if (!name || !address || !email || !contact) {
             setError("please enter all the input field")
         } else {
             dispatch(updateUser(state, id))

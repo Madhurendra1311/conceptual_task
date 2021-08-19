@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { deleteUser, loadUsers } from "../redux/actions"
 import { useHistory } from 'react-router';
 
@@ -69,7 +69,7 @@ function Home() {
   let dispatch = useDispatch()
   const { users } = useSelector(state => state.data)
   useEffect(() => {
-    dispatch(loadUsers)
+    dispatch(loadUsers())
   }, [])
 
   const handleDelete = (id) => {

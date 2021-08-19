@@ -77,6 +77,7 @@ export const updateUser = (user, id) => {
             .put(`${process.env.REACT_APP_API}/${id}`, user).then((resp) => {
             console.log("resp", resp)
             dispatch(userUpdated())
+            dispatch(loadUsers())
         })
         .catch((error) => console.log(error))
     }

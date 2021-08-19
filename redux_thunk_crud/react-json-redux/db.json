@@ -8,7 +8,7 @@
       "id": 1
     },
     {
-      "name": "ram",
+      "name": "rama",
       "address": "pune",
       "email": "r@gmail.com",
       "contact": 8709181797,
@@ -22,18 +22,11 @@
       "id": 3
     },
     {
-      "name": "sk k",
-      "email": "shk@gmail.com",
-      "contact": "3567890000",
-      "address": "usa",
-      "id": 5
-    },
-    {
-      "name": "bnn",
-      "email": "kmadhu1311@gmail.com",
-      "contact": "869858",
-      "address": "upp",
-      "id": 6
+      "name": "hero ",
+      "email": "h@gmail.com",
+      "contact": "8765454966",
+      "address": "ban",
+      "id": 8
     }
   ]
 }
