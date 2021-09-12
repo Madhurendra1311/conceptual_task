@@ -29,6 +29,11 @@ const App: React.FC = () => {
           key={user.id}
           user={user}
         />
+        // <div>
+        //   <h1>{user.title}</h1>
+        //         <p>{user.body}</p>
+        // </div>
+        
       ))}
     </main>
   )
