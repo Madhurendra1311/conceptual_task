@@ -19,18 +19,30 @@ export const AddUser: React.FC<Props> = ({ saveUser }) => {
         saveUser(user)
     }
 
-    return(
-        <form onSubmit={addNewUser} className="Add-user"> 
+    return (
+        <form onSubmit={addNewUser} className="Add-user">
             <input
                 type="text"
-                id="title"
-                placeholder="Title"
+                id="name"
+                placeholder="Name"
+                onChange={handleUserData}
+            />
+            <input
+                type="number"
+                id="age"
+                placeholder="Age"
                 onChange={handleUserData}
             />
             <input
                 type="text"
-                id="body"
-                placeholder="Description"
+                id="note"
+                placeholder="Note"
+                onChange={handleUserData}
+            />
+            <input
+                type="text"
+                id="location"
+                placeholder="Location"
                 onChange={handleUserData}
             />
             <button disabled={user === true ? true : false}> Add User</button>

@@ -1,16 +1,20 @@
-import { ADD_USER } from "../actionTypes";
+import { ADD_USER, REMOVE_USER } from "../actionTypes";
 
 const initialState: UserState = {
     users: [
         {
             id: 1,
-            title: "post 1",
-            body: "Full stack"
+            name: "Kunal",
+            age: 25,
+            note: "Full Stack",
+            location: "Kolkata"
         },
         {
             id: 2,
-            title: "post 2",
-            body: "Front end"
+            name: "Raunak",
+            age: 24,
+            note: "Front end",
+            location: "Bangalore"
         }
     ]
 }
@@ -20,12 +24,20 @@ const reducer = (state: UserState = initialState, action: UserAction): UserState
         case ADD_USER:
             const newUser: IUser = {
                 id: Math.random(),
-                title: action.user.title,
-                body: action.user.body
+                name: action.user.name,
+                age: action.user.age,
+                note: action.user.note,
+                location: action.user.location
             }
             return {
                 ...state,
                 users: state.users.concat(newUser)
+            }
+        case REMOVE_USER:
+            const updatedUsers: IUser[] = state.users.filter(user => user.id!== action.user.id)
+            return {
+                ...state,
+                users: updatedUsers
             }
     }
     return state

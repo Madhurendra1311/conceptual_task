@@ -1,10 +1,10 @@
 import React from 'react';
-import { useSelector, shallowEqual, useDispatch, useStore } from 'react-redux';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import './App.css';
 
 import { User } from "./components/User"
 import { AddUser } from "./components/AddUser";
-import { addUser } from "./Redux/actions/addUserAction";
+import { addUser, removeUser } from "./Redux/actions/addUserAction";
 import { Dispatch } from "redux"
 
 const App: React.FC = () => {
@@ -28,12 +28,8 @@ const App: React.FC = () => {
         <User
           key={user.id}
           user={user}
+          removeUser = {removeUser}
         />
-        // <div>
-        //   <h1>{user.title}</h1>
-        //         <p>{user.body}</p>
-        // </div>
-        
       ))}
     </main>
   )

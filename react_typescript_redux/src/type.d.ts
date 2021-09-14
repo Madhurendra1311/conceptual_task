@@ -1,7 +1,9 @@
 interface IUser {
-    id: number
-    title: String
-    body: string
+    id: number;
+    name: String;
+    age: number;
+    note: string;
+    location: String;
 }
 
 type UserState = {
