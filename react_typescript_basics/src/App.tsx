@@ -23,22 +23,22 @@ import { Text } from './components/polymorphic/Text'
 
 function App() {
   const personName = {
-    first: 'Bruce',
-    last: 'Wayne'
+    first: 'Kunal',
+    last: 'Shah'
   }
 
   const nameList = [
     {
-      first: 'Bruce',
-      last: 'Wayne'
+      first: 'Rohan',
+      last: 'Kumar'
     },
     {
-      first: 'Clark',
-      last: 'Kent'
+      first: 'Raunak',
+      last: 'Kumar'
     },
     {
-      first: 'Princess',
-      last: 'Diana'
+      first: 'Suraj',
+      last: 'Kumar'
     }
   ]
 
@@ -77,18 +77,18 @@ function App() {
         items={[
           {
             id: 1,
-            first: 'Bruce',
-            last: 'Wayne'
+            first: 'Rohan',
+            last: 'Kumar'
           },
           {
             id: 2,
-            first: 'Clark',
-            last: 'Kent'
+            first: 'Raunak',
+            last: 'Kumar'
           },
           {
             id: 3,
-            first: 'Princess',
-            last: 'Diana'
+            first: 'Suraj',
+            last: 'Kumar'
           }
         ]}
         onClick={item => console.log(item)}
